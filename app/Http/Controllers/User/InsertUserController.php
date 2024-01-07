@@ -8,7 +8,10 @@ use App\Models\User;
 class InsertUserController extends Controller
 {
     public function insert(){
-        for($i = 0; $i < 10; $i++){
+        $userLast = User::latest()->first();
+        $firstNum = $userLast->id+1;
+        $secondNum = $userLast->id+11;
+        for($i = $firstNum; $i < $secondNum; $i++){
             $user = new User();
             $user->name = "name".$i;
             $user->email = "email".$i;
